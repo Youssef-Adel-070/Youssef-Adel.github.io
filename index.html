@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yousef Adel - Data Engineer & DataOps Specialist Portfolio">
+<title>Yousef Adel | Data Engineer & DataOps Specialist</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          brand: {
+            50: '#f0f9ff',
+            100: '#e0f2fe',
+            400: '#38bdf8',
+            500: '#0284c7',
+            600: '#2563eb',
+            glow: 'rgba(56, 189, 248, 0.2)',
+          },
+          dark: {
+            base: '#090d16',
+            surface: '#0f172a',
+            card: '#131e36',
+            border: 'rgba(255, 255, 255, 0.08)',
+            borderLight: 'rgba(56, 189, 248, 0.3)',
+          }
+        },
+        animation: {
+          'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  body {
+    background-color: #090d16;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+  .glow-radial {
+    background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.14) 0%, rgba(37, 99, 235, 0.05) 45%, rgba(9, 13, 22, 0) 75%);
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #090d16; }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
+  /* Accessibility: visible keyboard focus */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  /* Consistent, centered section headers */
+  .section-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .section-eyebrow {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #38bdf8;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .section-sub {
+    margin: 1rem auto 0;
+    max-width: 36rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-[#090d16] text-slate-200 antialiased font-sans selection:bg-sky-500/30 selection:text-sky-200">
+
+<!-- Ambient Glow Background -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] glow-radial pointer-events-none -z-10"></div>
+<div class="fixed inset-0 bg-grid-pattern opacity-50 pointer-events-none -z-10"></div>
+
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090d16]/85 border-b border-dark-border transition-all">
+  <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between" aria-label="Main navigation">
+    <!-- Brand Logo -->
+    <a class="group flex items-center gap-3" href="#home" aria-label="Yousef Adel - Home">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-sky-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform duration-300">
+        <span class="font-mono text-sm tracking-tighter">YA</span>
+      </div>
+    
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <li><a class="hover:text-sky-400 transition-colors" href="#home">Home</a></li>
+      <li><a class="hover:text-sky-400 transition-colors" href="#about">About</a></li>
+      <li><a class="hover:text-sky-400 transition-colors" href="#skills">Skills</a></li>
+      <li><a class="hover:text-sky-400 transition-colors" href="#experience">Experience</a></li>
+      <li><a class="hover:text-sky-400 transition-colors" href="#projects">Projects</a></li>
+      <li><a class="hover:text-sky-400 transition-colors" href="#education">Education</a></li>
+    </ul>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-3.5">
+      <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold text-white bg-sky-500/10 border border-sky-500/30 hover:bg-sky-500 hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-sky-500/25" href="#contact">
+        <span>Get in Touch</span>
+        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="relative z-10">
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 pb-24 lg:pt-20 lg:pb-32" id="home">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+      <!-- Hero Left Content -->
+      <div class="lg:col-span-7 space-y-7 order-2 lg:order-1">
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-dark-borderLight text-xs font-medium text-sky-300 shadow-inner">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Available for Data Engineering Roles</span>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="space-y-3">
+          <p class="font-mono text-xs sm:text-sm tracking-widest text-sky-400 uppercase font-semibold">Data Engineer & DataOps Specialist</p>
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+            Yousef <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500">Adel</span>
+          </h1>
+        </div>
+
+        <!-- Bio Intro -->
+        <p class="text-slate-300 text-base sm:text-lg leading-8 max-w-2xl">
+          Computer & Information Science graduate specializing in scalable <strong class="text-white font-semibold">ETL/ELT pipelines</strong>, resilient <strong class="text-white font-semibold">DataOps automation</strong>, and scheduled workflows using Python, optimized SQL, and Apache Airflow.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-blue-600 to-sky-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/25 transition-all duration-300 hover:-translate-y-0.5" href="#projects">
+            <span>View Featured Projects</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <a class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-dark-border text-sm font-medium transition-all duration-300" href="mailto:youssefadelmoh246@gmail.com?subject=Job%20Opportunity%20-%20Data%20Engineer">
+            <i data-lucide="file-down" class="w-4 h-4 text-cyan-400"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+     
+      </div>
+
+      <!-- Hero Right: Portrait Card -->
+      <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center">
+        <div class="relative w-full max-w-sm">
+          <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl">
+            <img alt="Yousef Adel - Data Engineer" class="w-full aspect-square object-cover object-top" src="imgs/ProfileIMG.png">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="max-w-7xl mx-auto px-6 py-24" id="about">
+    <div class="max-w-4xl mx-auto">
+    <div class="section-header">
+    <span class="section-eyebrow">About Me</span>
+    <h2 class="section-title">
+        Building efficient data pipelines and reliable data solutions.
+    </h2>
+</div>
+
+<div class="space-y-6 text-slate-300 text-base sm:text-lg leading-8 text-center sm:text-left max-w-3xl mx-auto">
+
+    <p>
+        I'm a <strong class="text-white font-semibold">Data Engineer</strong>
+        passionate about working with data, solving technical problems,
+        and building systems that turn raw information into valuable insights.
+        I enjoy understanding how data is collected, processed, transformed,
+        and delivered in a reliable and organized way.
+    </p>
+
+    <p>
+        My main focus is on developing
+        <strong class="text-white font-semibold">ETL/ELT pipelines</strong>,
+        automating data workflows with
+        <strong class="text-white font-semibold">Apache Airflow</strong>,
+        and working with <strong class="text-white font-semibold">Python and SQL</strong>
+        to process and manage data efficiently. I'm also interested in
+        <strong class="text-white font-semibold">DataOps</strong>,
+        using Docker, workflow automation, and data quality checks
+        to make data systems more consistent and dependable.
+    </p>
+
+
+
+</div>
+
+      
+    </div>
+  </section>
+
+  <!-- Technical Stack / Skills Section -->
+  <section class="py-24 bg-dark-surface/40 border-y border-dark-border relative" id="skills">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header">
+        <span class="section-eyebrow">Skills</span>
+        <h2 class="section-title">Tech Stack </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+        <!-- Languages -->
+        <div class="bg-dark-card border border-dark-border rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-400"><i data-lucide="code-2" class="w-5 h-5"></i></div>
+            <span class="text-[10px] font-mono text-slate-500 font-bold">01</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Languages</h3>
+          <p class="text-sm text-slate-400 mb-6 leading-relaxed flex-1">Core scripting, database querying, procedural algorithms, and application logic.</p>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-dark-border">
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">SQL</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">C++</span>
+          </div>
+        </div>
+
+        <!-- Data Engineering -->
+        <div class="bg-dark-card border border-dark-border rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400"><i data-lucide="git-merge" class="w-5 h-5"></i></div>
+            <span class="text-[10px] font-mono text-slate-500 font-bold">02</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Data Engineering</h3>
+          <p class="text-sm text-slate-400 mb-6 leading-relaxed flex-1">Workflow orchestration, transformation pipelines, data validation, and deduplication.</p>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-dark-border">
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Apache Airflow</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">ETL Pipelines</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Data Validation</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Data Cleaning</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Data Quality Checks</span>
+          </div>
+        </div>
+
+        <!-- Databases & Storage -->
+        <div class="bg-dark-card border border-dark-border rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <div class="p-2.5 rounded-lg bg-blue-500/10 text-blue-400"><i data-lucide="database" class="w-5 h-5"></i></div>
+            <span class="text-[10px] font-mono text-slate-500 font-bold">03</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Databases & Storage</h3>
+          <p class="text-sm text-slate-400 mb-6 leading-relaxed flex-1">Relational modeling, indexing strategies, document persistence, and SQL tuning.</p>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-dark-border">
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Microsoft SQL Server</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">MongoDB</span>
+          </div>
+        </div>
+
+        <!-- DevOps & Cloud Tools -->
+        <div class="bg-dark-card border border-dark-border rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i data-lucide="box" class="w-5 h-5"></i></div>
+            <span class="text-[10px] font-mono text-slate-500 font-bold">04</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">DevOps & Cloud Tools</h3>
+          <p class="text-sm text-slate-400 mb-6 leading-relaxed flex-1">Container orchestration, CLI scripting, REST APIs, and automated deployment.</p>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-dark-border">
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Linux</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Git & GitHub</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Postman</span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Swagger</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section class="max-w-7xl mx-auto px-6 py-24" id="experience">
+    <div class="section-header">
+      <span class="section-eyebrow">Journey</span>
+      <h2 class="section-title">Work Experience</h2>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Timeline Line -->
+      <div class="absolute left-4 top-6 bottom-6 w-0.5 bg-gradient-to-b from-sky-400 via-sky-600 to-transparent hidden sm:block"></div>
+
+      <div class="relative sm:pl-14">
+        <!-- Dot Badge -->
+        <div class="absolute left-4 top-9 -translate-x-1/2 w-5 h-5 rounded-full bg-dark-base border-4 border-sky-400 shadow-md shadow-sky-500/50 hidden sm:block"></div>
+
+        <div class="bg-dark-card border border-dark-border hover:border-dark-borderLight rounded-2xl p-6 sm:p-8 transition-all duration-300 shadow-xl">
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-dark-border">
+            <div class="space-y-1.5">
+              <span class="inline-block px-2.5 py-1 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-sky-500/10 text-sky-400 border border-sky-500/20">Internship</span>
+              <h3 class="text-2xl font-bold text-white">DataOps Intern</h3>
+              <h4 class="text-sm sm:text-base font-semibold text-slate-300">National Telecommunication Institute (NTI)</h4>
+            </div>
+            <div class="font-mono text-xs text-sky-300 px-3 py-2 rounded-lg bg-dark-base border border-dark-border self-start sm:self-auto flex items-center gap-2">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-sky-400"></i>
+              <span>Oct 2026 – Present</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-slate-300 text-sm sm:text-base mt-6 leading-7">
+            Practical experience developing scalable data processing workflows, orchestrating batch jobs, and working with modern DataOps tooling in simulated enterprise environments.
+          </p>
+
+          <!-- Responsibilities -->
+          <ul class="mt-6 space-y-4">
+            <li class="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-7">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-2"></i>
+              <span>Developed end-to-end data processing workflows and transformations using Python and optimized SQL queries.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-7">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-2"></i>
+              <span>Built and managed resilient ETL pipelines using <strong class="text-white font-semibold">Apache Airflow</strong> DAGs with retry policies and SLA alerting.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-7">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-2"></i>
+              <span>Engineered database schemas and ingestion routines in <strong class="text-white font-semibold">PostgreSQL</strong> and <strong class="text-white font-semibold">SQL Server</strong>.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-7">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-2"></i>
+              <span>Employed <strong class="text-white font-semibold">Docker</strong> containers and Linux terminal environments for isolated testing and reproducible deployments.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-7">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-2"></i>
+              <span>Implemented automated data validation checks, error-handling routines, and exploratory CI/CD practices on Microsoft Azure.</span>
+            </li>
+          </ul>
+
+          <!-- Badges -->
+          <div class="mt-8 pt-6 border-t border-dark-border flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Python</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">SQL</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Apache Airflow</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Docker</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="py-24 bg-dark-surface/30 border-y border-dark-border" id="projects">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header" style="margin-bottom:3.5rem;">
+        <span class="section-eyebrow">Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <a class="inline-flex items-center gap-2 mt-5 text-xs font-mono font-semibold text-sky-400 hover:text-sky-300 transition-colors" href="https://github.com/Youssef-Adel-070" rel="noopener noreferrer" target="_blank">
+          <span>View All Repositories on GitHub</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Project 1: Skin Ally -->
+        <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-sky-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col group shadow-xl h-full">
+          <!-- Banner -->
+          <div class="h-48 bg-gradient-to-br from-slate-900 via-sky-950 to-blue-900 relative p-6 flex flex-col justify-between border-b border-dark-border overflow-hidden shrink-0">
+            <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="font-mono text-xs text-sky-300/80 font-bold">PROJECT #01</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-sky-500/20 text-sky-300 border border-sky-500/30">DashBoard PROJECT</span>
+            </div>
+            <div class="relative z-10 text-center">
+              <div class="  rounded-2xl bg-white/10  flex items-center justify-center text-sky-300 group-hover:scale-110 transition-transform">
+              <img src="imgs/dash flow.png" alt="TensorFlow 2.13.0 Badge" class="">
+              </div>
+            </div>
+            <div class="relative z-10 flex items-center justify-between text-[11px] font-mono text-slate-300">
+                          <span>Analytics / Data Visualization</span>
+            <span class="text-emerald-400">Complete</span>
+
+            </div>
+          </div>
+          <!-- Body -->
+          <div class="p-6 flex flex-col flex-1">
+             <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors mb-3">
+            DashFlow - Analytics Dashboard
+        </h3>
+
+        <p class="text-slate-300 text-sm leading-7 mb-5">
+            A modern analytics dashboard designed to visualize business performance through interactive charts, KPI metrics, sales reports, traffic analysis, and real-time data insights. Provides a clean interface for monitoring key business indicators and making data-driven decisions.
+        </p>
+             <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Next.js</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">React</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">TypeScript</span>
+            <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Tailwind CSS</span>
+        </div>
+          </div>
+          <!-- Footer -->
+          <div class="px-6 py-4 border-t border-dark-border flex items-center justify-between">
+            <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-white transition-colors" href="https://github.com/Youssef-Adel-070/nextjs-dashflow" rel="noopener noreferrer" target="_blank">
+              <span>View Code</span> 
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-slate-400">Analytic DashBoard</span>
+          </div>
+        </div>
+
+        <!-- Project 2: E-Commerce Platform -->
+        <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-sky-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col group shadow-xl h-full">
+          <div class="h-48 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-800 relative p-6 flex flex-col justify-between border-b border-dark-border overflow-hidden shrink-0">
+            <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="font-mono text-xs text-indigo-300/80 font-bold">PROJECT #02</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">FULL-STACK APP</span>
+            </div>
+            <div class="relative z-10 text-center">
+              <div class="  rounded-2xl bg-white/10  flex items-center justify-center text-sky-300 group-hover:scale-110 transition-transform">
+              <img src="imgs/ecommerce.png" alt="TensorFlow 2.13.0 Badge" class="">
+              </div>
+            </div>
+            <div class="relative z-10 flex items-center justify-between text-[11px] font-mono text-slate-300">
+              <span>Web & Data Integration</span>
+              <span class="text-emerald-400">Deployed</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors mb-3">E-Commerce Platform</h3>
+            <p class="text-slate-300 text-sm leading-7 mb-5">A high-performance responsive platform featuring dynamic product catalogs, state management, wishlist persistence, real-time search, category filtering, and checkout flows.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">React</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Next</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">REST API</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Context API</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="px-6 py-4 border-t border-dark-border flex items-center justify-between">
+            <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-white transition-colors" href="https://github.com/Youssef-Adel-070/Nuvo" rel="noopener noreferrer" target="_blank">
+              <span>View Code</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-slate-400">React • REST API</span>
+          </div>
+        </div>
+
+        <!-- Project 3: CRUD Product & Inventory System -->
+        <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-sky-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col group shadow-xl h-full md:col-span-2 lg:col-span-1">
+          <div class="h-48 bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-800 relative p-6 flex flex-col justify-between border-b border-dark-border overflow-hidden shrink-0">
+            <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="font-mono text-xs text-cyan-300/80 font-bold">PROJECT #03</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DATA PERSISTENCE</span>
+            </div>
+            <div class="relative z-10 text-center ">
+              <div class=" mx-auto rounded-2xl bg-white/10  flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform">
+                <img src="imgs/crud app.png" alt="" srcset="">
+              </div>
+            </div>
+            <div class="relative z-10 flex items-center justify-between text-[11px] font-mono text-slate-300">
+              <span>Inventory & CRUD</span>
+              <span class="text-emerald-400">Complete</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors mb-3">CRUD Product & Inventory System</h3>
+            <p class="text-slate-300 text-sm leading-7 mb-5">A robust client-side inventory management application supporting create, read, update, delete operations, multi-attribute search filtering, and local data persistence.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">JavaScript</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">LocalStorage</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">CRUD Operations</span>
+              <span class="px-2.5 py-1 rounded bg-dark-base text-slate-300 text-xs font-mono border border-dark-border">Bootstrap</span>
+            </div>
+          </div>
+          <div class="px-6 py-4 border-t border-dark-border flex items-center justify-between">
+            <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-white transition-colors" href="https://github.com/Youssef-Adel-070/dynamic-crud-app-" rel="noopener noreferrer" target="_blank">
+              <span>View Code</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-slate-400">JS • Storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications Section -->
+  <section class="max-w-7xl mx-auto px-6 py-24" id="education">
+    <div class="section-header">
+      <span class="section-eyebrow">Credentials</span>
+      <h2 class="section-title">Education & Training</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+
+      <!-- Education Card 1 -->
+      <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition-all flex flex-col shadow-lg">
+        <div class="space-y-4 flex-1">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-dark-base text-sky-300 border border-dark-border">Class of 2025</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Computer & Information Science</h3>
+          <h4 class="text-sm font-semibold text-sky-400">ElShrouk Academy</h4>
+          <p class="text-slate-300 text-sm leading-7">Bachelor's degree with a final cumulative grade of <strong class="text-white">Very Good</strong>. Rigorous coursework in algorithms, database engineering, computer architecture, and software development.</p>
+        </div>
+      
+      </div>
+
+      <!-- Education Card 2 -->
+      <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition-all flex flex-col shadow-lg">
+        <div class="space-y-4 flex-1">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+              <i data-lucide="binary" class="w-6 h-6"></i>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-dark-base text-cyan-300 border border-dark-border">NTI Professional</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">DataOps & Engineering Track</h3>
+          <h4 class="text-sm font-semibold text-cyan-400">National Telecommunication Institute</h4>
+          <p class="text-slate-300 text-sm leading-7">Intensive technical qualification focusing on automated ETL pipelines, distributed task workflows via Apache Airflow, Docker container management, and continuous data quality validation.</p>
+        </div>
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-24 bg-dark-surface/60 border-t border-dark-border relative" id="contact">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-dark-card border border-dark-border rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-2xl text-center">
+
+        <span class="section-eyebrow">Get In Touch</span>
+        <h2 class="section-title" style="font-size:clamp(1.875rem,5vw,3rem);">Let's build reliable data systems together.</h2>
+        <p class="text-slate-300 text-base max-w-xl mx-auto leading-7 mt-5 mb-10">
+          I am actively interviewing for full-time Data Engineer and DataOps roles. Whether you have an open position, an exciting project, or simply want to connect, feel free to reach out.
+        </p>
+
+        <!-- Primary actions -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm transition-all shadow-lg shadow-sky-500/25 hover:-translate-y-0.5" href="mailto:youssefadelmoh246@gmail.com?subject=Job%20Opportunity%20-%20Data%20Engineer">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Send me an Email</span>
+          </a>
+          <button id="copy-email" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-dark-base hover:bg-slate-800 text-slate-300 hover:text-white border border-dark-border text-sm font-mono font-medium transition-colors" type="button" aria-live="polite">
+            <i data-lucide="copy" class="w-4 h-4 text-sky-400" id="copy-icon"></i>
+            <span id="copy-label">Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Contact detail cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-10 border-t border-dark-border text-left">
+          <a class="group flex items-center gap-3 p-4 rounded-xl bg-dark-base border border-dark-border hover:border-sky-500/40 transition-colors min-w-0" href="mailto:youssefadelmoh246@gmail.com">
+            <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400 shrink-0"><i data-lucide="mail" class="w-4 h-4"></i></div>
+            <div class="min-w-0">
+              <span class="block text-[11px] font-mono text-slate-400">Email</span>
+              <span class="block text-xs text-slate-100 truncate group-hover:text-sky-400 transition-colors">youssefadelmoh246@gmail.com</span>
+            </div>
+          </a>
+          <a class="group flex items-center gap-3 p-4 rounded-xl bg-dark-base border border-dark-border hover:border-sky-500/40 transition-colors min-w-0" href="https://www.linkedin.com/in/yousefadel9/" rel="noopener noreferrer" target="_blank">
+            <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400 shrink-0"><i data-lucide="linkedin" class="w-4 h-4"></i></div>
+            <div class="min-w-0">
+              <span class="block text-[11px] font-mono text-slate-400">LinkedIn</span>
+              <span class="block text-xs text-slate-100 truncate group-hover:text-sky-400 transition-colors">yousefadel9</span>
+            </div>
+          </a>
+          <a class="group flex items-center gap-3 p-4 rounded-xl bg-dark-base border border-dark-border hover:border-sky-500/40 transition-colors min-w-0" href="https://github.com/Youssef-Adel-070" rel="noopener noreferrer" target="_blank">
+            <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0"><i data-lucide="github" class="w-4 h-4"></i></div>
+            <div class="min-w-0">
+              <span class="block text-[11px] font-mono text-slate-400">GitHub</span>
+              <span class="block text-xs text-slate-100 truncate group-hover:text-sky-400 transition-colors">Youssef-Adel-070</span>
+            </div>
+          </a>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-dark-base border border-dark-border min-w-0">
+            <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+            <div class="min-w-0">
+              <span class="block text-[11px] font-mono text-slate-400">Location</span>
+              <span class="block text-xs text-slate-100 truncate">Cairo, Egypt • Open to remote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+<script>
+  // Initialize Lucide icons
+  if (window.lucide) { lucide.createIcons(); }
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Copy email with inline feedback (no alert popup)
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var label = document.getElementById('copy-label');
+    var email = 'youssefadelmoh246@gmail.com';
+    if (!btn) return;
+
+    function done() {
+      label.textContent = 'Copied!';
+      setTimeout(function () { label.textContent = 'Copy Email'; }, 2000);
+    }
+
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+
+    function fallback() {
+      var t = document.createElement('textarea');
+      t.value = email;
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(t);
+    }
+  })();
+</script>
+</body>
+</html>
